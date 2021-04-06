@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .wrap {
+      width: 200px;
+      height: 200px;
+      background: red;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .inner {
+      width: 100px;
+      height: 50px;
+      padding: 20px;
+      background: blue;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="inner">
+      <span>123</span>
+    </div>
+    <div class="inner2">5555</div>
+    <a id="target" href="https://baidu.com">click</a>
+  </div>
+  <script>
+    const theLink = document.getElementById('target');
+
+    theLink.addEventListener('click', function (event) {
+      event.preventDefault();
+      window.location.href = 'http://www.dahuatech.com/?url=' +
+        encodeURIComponent(theLink.getAttribute('href'));
+    });
+
+    //     yarn
+    // id_rsa=`cat ~/.ssh/id_rsa`;
+    // fim publish \
+    // --privateKey="$id_rsa" \
+    // --noVerify
+    // --username=root \
+    // --host=47.114.49.254 \
+
+    // --port=2021 \
+    // --localDir=./public \
+    // --remoteDir=/usr/local/www/webapps/process_management/front/jenkins \
+    // --exec="yarn build:dev" \
+  </script>
+</body>
+
+</html>

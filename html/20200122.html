@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    body, html, .box {
+      height: 100%;
+      width: 100%;
+    }
+    .box {
+      /* background-image: url(./fox.jpg); */
+      background-size: cover;
+      background-repeat: no-repeat;
+      outline:#000 solid 999px;
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="box">
+    <button class="btn">vibrate</button>
+    <div class="son">11</div>
+  </div>
+  <script>
+    document.querySelector('.btn').addEventListener('click',function () {
+
+      navigator.vibrate && navigator.vibrate(50)
+    })
+
+  </script>
+  
+</body>
+</html>

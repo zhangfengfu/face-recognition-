@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1851531_aeuqsl1erk.css">
+  <title>每行N列 每列间距xpx （20px）通用写法 两边间距一定要大于等于中间列没项间距</title>
+  <style>
+    body {
+      width: 400px;
+      border: 1px solid #ff0000;
+      margin: 0 auto;
+    }
+
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      list-style: none;
+    }
+
+    .box {
+      padding: 16px calc(32px - 20px) 16px 32px;
+      overflow: hidden;
+    }
+
+    ul>li {
+      background: pink;
+      height: 30px;
+      margin-bottom: 12px;
+      width: 100%;
+      float: left;
+      margin-right: 20px;
+      width: calc(100%/3 - 20px);
+    }
+
+    i {
+      height: 20px;
+      width: 20px;
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <i class="iconfont iconclose1"></i>
+  <ul class="box">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+    <li>10</li>
+  </ul>
+  <script>
+    // function Foo() {
+    //   getName = function () {
+    //     console.log(1)
+    //   }
+    //   return this
+    // }
+    // Foo.getName = function () {
+    //   console.log(2)
+    // }
+    // Foo.prototype.getName = function () {
+    //   console.log(3)
+    // }
+    // var getName = function () {
+    //   console.log(4)
+    // }
+
+    // function getName() {
+    //   console.log(5)
+    // }
+
+    // Foo.getName()  
+    // getName()      
+    // Foo().getName() 
+    // getName()        
+    // new Foo.getName()  
+    // new Foo().getName()  
+    // new new Foo().getName() 
+    
+    function Fn () {
+       getName = function() {
+        console.log(1)
+      }
+    }
+    function getName () {
+      console.log(2)
+    }
+    var getName = function () {
+      console.log(3)
+    }
+    let c = new Fn()
+    getName()
+    // // new 的过程
+    // 1.创建一个对象，并且给他分布内存
+    // 2.执行构造函数里边的代码
+    // 3. 将构造函数的原型 赋值给 该对象的__proto__属性
+    // 4.将this 指向该obj
+    // 返回这个对象实例 默认return 该对象实例 如果显式的return 如果是一个基本类型 则返回该实例 如果是一个对象 返回该对象
+
+    // 普通函数 函数声明式 函数表达式 匿名函数 箭头函数 构造函数 
+    // 构造函数的方法 属性 原型上的方法
+
+    /* 
+    
+    
+    
+    基本类型 null booble string underfind symbol number 
+    引用类型 object function array bigint
+    内置对象 Math 
+    */
+  </script>
+</body>
+
+</html>

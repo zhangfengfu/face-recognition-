@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button>confirm</button>
+  <script>
+
+    class MyClass {
+      // @deco()
+      fn () {
+        console.log(123)
+      }
+    }
+
+    function deco () {
+      return function (target, name, describle) {
+        console.log(target, name, describle,'444')
+      }
+    }
+
+    function fn (method) {
+      
+      return function (url) {
+        return new Promise(function (reslove, reject) {
+          let num = Math.random()
+          if (num > 0.5) {
+            reslove({num,msg: '大于0.5',method,url})
+          } else {
+            reject({num, msg: '小于',method,url})
+          }
+
+        })
+      }
+    }
+
+    let methods = fn('get')
+    let url = methods('getDemo')
+    url.then(res=>{console.log(res)}).catch(err=>{
+      console.log(err,'err')
+    })
+    
+  </script>
+</body>
+</html>

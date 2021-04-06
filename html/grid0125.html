@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      height: 100%;
+      width: 100%;
+
+    }
+
+    .box {
+      border: 1px solid darkblue;
+      height: calc(100% - 32px);
+      width: calc (100% - 32px);
+      padding: 16px;
+      display: grid;
+      grid-template-columns: repeat(3, 120px);
+      grid-template-rows: repeat(3, 100px);
+      column-gap: 16px;
+      row-gap: 16px;
+      justify-items: stretch;
+      align-items: stretch;
+      justify-content: center;
+      align-content: center;
+      grid-auto-flow: column dense ;
+      grid-template-areas: 'a b c'
+      'd e f'
+      'g h i';
+      color: #fff;
+      font-size: 20px;
+    }
+
+    .box>div {
+      border: 1px solid darkred;
+      text-align: center;
+      line-height: 100px;
+    }
+    .item1 {
+      grid-column-start: 2;
+      grid-column-end: 4;
+      grid-row-start: 1;
+      grid-row-end: 2;
+    }
+    .item2 {
+      grid-column-start: 2 span;
+    }
+    .item3 {
+      grid-area: i ;
+    }
+    .flex {
+      display: flex;
+      height: 300px;
+      width: 400px;
+      border: 1px solid rgb(122,255,089);
+    }
+    .flex > div{
+      border: 2px solid darkblue;
+      margin: 2px;
+    }
+    .flexItem1 {
+      flex: 1 500px;
+    }
+    .flexItem2 {
+      flex: auto;
+    }
+
+  </style>
+</head>
+
+<body>
+  <!-- <div class="box">
+    <div class="item1">1</div>
+    <div class="item2">2</div>
+    <div class="item3">3</div>
+    <div class="item4">4</div>
+    <div class="item5">5</div>
+    <div class="item6">6</div>
+    <div class="item7">7</div>
+    <div class="item8">8</div>
+    <div class="item9">9</div>
+  </div>
+  <div class="flex">
+    <div class="flexItem1">1</div>
+    <div class="flexItem2">2</div>
+    <div class="flexItem3">3</div>
+  </div> -->
+
+  <script>
+    let getColor = function () {
+      let r = Math.floor(Math.random() * 256)
+      let g = Math.floor(Math.random() * 256)
+      let b = Math.floor(Math.random() * 256)
+      return [r, g, b]
+    }
+    
+    function createColor () {
+      console.log(123)
+      let items = [...document.querySelector('.box').children]
+      items.map(v => {
+        let rgb = "rgb(" + getColor().toString() + ")"
+        v.style.backgroundColor = rgb
+      })
+    }
+    // createColor()
+    toThousands = (num) => {
+      let numSting = (num || 0).toString()
+      console.log(num)
+      let reg = numSting.includes(".") ? /(\d)(?=(\d{3})+\.)/g : /(\d)(?=(?:\d{3})+$)/g
+      console.log(reg,'reg')
+      return numSting.replace(reg, '$1,');
+    }
+
+    toThousands(12366.88)
+    toThousands(12366)
+
+
+  </script>
+
+</body>
+
+</html>

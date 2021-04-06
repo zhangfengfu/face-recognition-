@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button class="btn">btn</button>
+<section class="canvas-wrap" style="
+    /* display: none; */
+">
+            <div id="canvas" class="gradient" style="background: -webkit-gradient(linear, 0% 0%, 100% 0%, from(rgb(53, 110, 242)), to(rgb(255, 85, 45)));"><canvas width="1920" height="324" style="width: 1920px; height: 324px;"></canvas></div>
+        </section>
+  <script>
+    function request (method, url, params) {
+      return new Promise((resolve, reject)=>{
+        let xhr = new XMLHttpRequest()
+        xhr.open(method, url, true)
+        xhr.onreadystatechange = function () {
+          // xhr.readyState 
+          // xhr.status
+          if (xhr.readyState === 4) {
+            if (xhr.status >= 200 && xhr.status < 304) {
+              resolve(xhr.response)
+            } else {
+              reject(xhr.response)
+            }
+          }
+          
+        }
+        xrh.send()
+
+      })
+    }
+    let btn = document.querySelector('.btn')
+    btn.addEventListener('click', function(){
+      location.href = "./http304.html"
+    })
+  </script>
+</body>
+</html>

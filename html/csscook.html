@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    div {
+      text-transform: lowercase;
+    }
+
+    .sj {
+      height: 0;
+      width: 0;
+      border-style: solid;
+      border-width: 20px 20px 0 20px;
+      border-color: darkblue transparent transparent transparent;
+    }
+
+    .tooltip {
+      position: relative;
+    }
+
+    .tooltip span {
+      /* display: none; */
+      padding: 5px;
+      width: 40px;
+    }
+
+    a:hover {
+      background-color: #fff;
+    }
+
+    .tooltip:hover span {
+      display: inline;
+      position: absolute;
+    }
+
+    .layout {
+      display: grid;
+      grid-template: auto 1fr auto / auto 1fr auto;
+      grid-template-areas: 'a a a'
+        'b c d'
+        'e e e';
+    }
+
+    .layout>div:nth-child(1) {
+      grid-area: a;
+      background-color: darkblue;
+    }
+
+    .layout>div:nth-child(2) {
+      grid-area: b;
+      background-color: darkgreen;
+    }
+
+    .layout>div:nth-child(3) {
+      grid-area: c;
+      background-color: darkgoldenrod;
+    }
+
+    .layout>div:nth-child(4) {
+      grid-area: d;
+      background-color: darkmagenta;
+    }
+
+    .layout>div:nth-child(5) {
+      grid-area: e;
+      background-color: darkred;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="layout">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+  </div>
+  <script>
+    function runPromiseInSequence(arr, input) {
+      return arr.reduce(
+        (promiseChain, currentFunction) => promiseChain.then(currentFunction),
+        Promise.resolve(input)
+      );
+    }
+
+    // promise function 1
+    function p1(a) {
+      return new Promise((resolve, reject) => {
+        resolve(a * 5);
+      });
+    }
+
+    // promise function 2
+    function p2(a) {
+      return new Promise((resolve, reject) => {
+        resolve(a * 2);
+      });
+    }
+
+    // function 3  - will be wrapped in a resolved promise by .then()
+    function f3(a) {
+      return a * 3;
+    }
+
+    // promise function 4
+    function p4(a) {
+      return new Promise((resolve, reject) => {
+        resolve(a * 4);
+      });
+    }
+
+    const promiseArr = [p1, p2, f3, p4];
+    runPromiseInSequence(promiseArr, 10)
+      .then(console.log); // 1200
+
+      let p =Promise.resolve(123)
+      async function fn () {
+        const res = await p
+        return Promise.resolve(66)
+        console.log(res)
+      }
+      fn().then(res=>{
+        console.log(res,'44')
+      })
+  </script>
+
+</body>
+
+</html>

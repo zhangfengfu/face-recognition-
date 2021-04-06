@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    https://snzj6.xyz/video/31/2020-05-08/82741.html
+  </div>
+  <script>
+    function Subject () {
+      this.observer = []
+    }
+
+    Subject.prototype = {
+      subject: function (observer) {
+        this.observer.push(observer)
+      },
+      unSubject: function (observer) {
+        this.observer.fitler(item=>{
+          return item !== observer
+        })
+      },
+      fire: function () {
+        this.observer.forEach(v=>{
+          v.call()
+        })
+      }
+    }
+
+    let sub = new Subject()
+    function observer1 () {
+      console.log(1)
+    }
+    function observer2 () {
+      console.log(22)
+    }
+
+
+    // sub.subject(observer1)
+    // sub.subject(observer2)
+    // sub.fire()
+
+
+    /*  */
+
+//     function fn() {
+//       for(var i=0; i<5; i++) {
+//         if (i>3) {
+//           return i
+//         }
+//       }
+//       return 55
+//     }
+
+//   let c =   fn()
+//   console.log(c,'c')
+
+//   function f1(){
+//     var a=222;
+//     function f2(){//此处为函数
+//         alert(a);
+//     };
+//     nAdd=function(){
+//       a+=1
+//       console.log(a,'a')
+//     };
+//     return f2
+// };
+
+// var obj=f1();
+// obj()//222
+
+// nAdd()//空
+// obj();//223
+    
+  </script>
+</body>
+</html>

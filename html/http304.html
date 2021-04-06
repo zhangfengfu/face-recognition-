@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+  <!-- <link rel="stylesheet" href="cssvar.css"> -->
+  <!-- <meta name="referrer" content="never"> -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    /* 
+    body {
+      font-size: 62.5%;
+    } */
+/* 
+    :root {
+      --font-40: 40px;
+    }
+
+    .mainList {
+      padding-top: env(safe-area-inset-top, 300px);
+      --text-color: blue;
+    }
+
+    .mainList h2 {
+      color: var(--text-color, darkred);
+    }
+
+    h2 {
+      color: var(--font-40, 60px);
+    } */
+    /* html,body {
+      font-size: 10px;
+    } */
+    /* 将容器宽度分成100份  */
+    .parg {
+      font-size: 1rem;
+      width: 100rem;
+    }
+    .parg1 {
+      font-size: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>this is a demo tt</h2>
+  <script>
+    // ;
+    // (function () {
+    //   var d = 10;
+    //   var e = 1;
+    //   var c = window.document,
+    //     a = navigator.userAgent,
+    //     f = a.match(/Android[\S\s]+AppleWebkit\/(\d{3})/i),
+    //     b = a.match(/U3\/((\d+|\.){5,})/i),
+    //     g = b && 80 <= parseInt(b[1].split(".").join(""), 10),
+    //     h = navigator.appVersion.match(/(iphone|ipad|ipod)/gi),
+    //     b = h && window.devicePixelRatio || 1;
+    //   h || f && 534 < f[1] || g || (b = 1);
+    //   a.indexOf("oppo R8107") > -1 && (b = 1);
+    //   var u = 1 / b;
+    //   a = c.querySelector('meta[name="viewport"]');
+    //   a || (a = c.createElement("meta"), a.setAttribute("name", "viewport"), c.head.appendChild(a));
+    //   a.setAttribute("content", "viewport-fit=cover,width=device-width,user-scalable=no,initial-scale=" + u +
+    //     ",maximum-scale=" + u + ",minimum-scale=" + u);
+    //   c.documentElement.style.fontSize = d / 2 * b * e + "px"
+    // })()
+     // 三个步骤:
+    // 1.获取html的宽,
+    let htmlwidth=document.documentElement.clientWidth || document.body.clientWidth;//有些浏览器documentElement获取不到,那就使用后面的body
+    console.log(htmlwidth);
+    
+    // 2.htmlDom
+    let htmlDom=document.getElementsByTagName("html")[0]
+    console.log(htmlDom);
+
+    //3.设置根元素样式
+    htmlDom.style.fontSize=htmlwidth/100+'px';
+  </script>
+  <div class="box">
+    <p class="parg">
+      需要用户处理事务，又不希望跳转页面以致打断工作流程时，可以使用,一个物理像素是显示器上最小的物理显示单元，每一个像素都有自己的颜色值和亮度。同一个设备，它的物理像素是固定的，即一个设备的分辨率是固定的。
+    </p>
+  </div>
+  <p class="parg1">
+    需要用户处理事务，又不希望跳转页面以致打断工作流程时，可以使用,一个物理像素是显示器上最小的物理显示单元，每一个像素都有自己的颜色值和亮度。
+    同一个设备，它的物理像素是固定的，即一个设备的分辨率是固定的。
+  </p>
+
+  <div class="mainList">
+    <h2>this is a demo</h2>
+    <!-- <img src="https://static.haishixuetang.com/pc/img/teacher.921387c0.png" alt="">
+
+    <img src="http://images.china.cn/images1/market/union/202012/banner.png" alt="">
+    <img
+      src="https://store.haishixuetang.com/ding727505dfcf47081aee0f45d8e4f7c288/education-isv/2020-09/2020-09-01/442360ad13a04b5899e66ce7d2ceab58.png"
+      alt="">
+    <img src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png" alt="tupian"> -->
+  </div>
+  <script>
+    function getServerDate(url) {
+      var xhr = null;
+      if (window.XMLHttpRequest) {
+        xhr = new window.XMLHttpRequest();
+      } else { // ie
+        xhr = new ActiveObject("Microsoft")
+      }
+
+      xhr.open("GET", url, true);
+      xhr.send(null);
+      xhr.onreadystatechange = function () {
+        var time, date;
+        if (xhr.readyState == 2) {
+          time = xhr.getResponseHeader("Date");
+          console.log(time, 'time')
+          date = new Date(time);
+          console.log(date);
+        }
+        if (xhr.readyState == 4) {
+          if (xhr.state == 200) {
+            console.log(xhr, 'xhr')
+          }
+
+        }
+      }
+    }
+    // getServerDate()
+    function fn() {
+      let num = Math.random()
+      return new Promise((res, rej) => {
+        if (num > 0.5) {
+          res('333')
+        } else {
+          rej('mistake')
+        }
+      })
+    }
+
+    new Promise((res, rej) => {
+      fn()
+        .then(res)
+        .catch(rej)
+    }).then(res => {
+      console.log(res, 'ppp')
+    }).catch(error => {
+      console.log('error', error)
+    })
+  </script>
+</body>
+
+</html>

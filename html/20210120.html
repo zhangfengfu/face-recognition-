@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let obj = {
+      name: 'richer',
+      age:18,
+      methods: {
+        say () {
+          console.log(this.name)
+        }
+      }
+    }
+
+    Reflect.defineProperty(obj,'sex', {
+      value: '123'
+    })
+    Reflect.deleteProperty(obj, 'age')
+    let name = Reflect.get(obj,'name')
+    let des = Reflect.getOwnPropertyDescriptor(obj,'name')
+    let prototype = Reflect.getPrototypeOf(obj)
+    let max = Reflect.apply(Math.max, undefined, [1,2,4,5])
+    let max1 = Math.max.apply(null, [1,2,5])
+  
+
+
+    const handler = {
+      get: function (obj, prop) {
+        return obj[prop] ?? '123'
+      }
+    }
+    const p = new Proxy(obj,handler)
+
+    console.log(p.name,'33')
+
+    let list = []
+    for (let index = 0; index < 5; index++) {
+      list.push({name: `richer${index}`, id: index})      
+    }
+    let c = new Set([1,4])
+
+    let intersection = [...list.filter(v=>c.has(v.id))]
+    console.log(intersection,'intersection')
+  </script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+.mainList {
+  --text-color: red;
+}
+
+.mainList h2 {
+  color: var(--text-color,blue);
+}
